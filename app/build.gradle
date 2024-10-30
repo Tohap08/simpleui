@@ -1,0 +1,77 @@
+buildscript {
+    repositories {
+        flatDir dirs: './appsuit'
+    }
+    dependencies {
+        classpath 'com.stealien.appsuit.gradle:AppSuit-AndroidStudio-24.1.2'
+    }
+}
+plugins {
+    alias(libs.plugins.android.application)
+}
+
+android {
+    namespace 'com.example.simpleui'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.myapplication"
+        minSdk 30
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.constraintlayout
+    implementation libs.navigation.fragment
+    implementation libs.navigation.ui
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+}
+apply plugin: 'appsuit'
+appsuit {
+    serverOptions {
+        host = 'https://cloud.appsu.it/api/v1'
+        id 'stealien_se'
+        pw 'stealien'
+
+//      options = ['check_root', 'detect_magisk', 'check_integrity', 'check_emul', 'check_debugging', 'prevent_debugging', 'self_protect', 'encrypt_so', 'encrypt_flutter', 'prevent_decompile']
+        options = ['prevent_adb']
+
+        cloudBuild true
+        enableServerBuild true
+        processLibrary false
+    }
+    rulePath './appsuit/rule.pro'
+    dumpPath './appsuit/dump.txt'
+    buildTypes {
+        release {
+            enabled true
+        }
+        debug {
+            enabled false
+        }
+    }
+}
