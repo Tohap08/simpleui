@@ -37,6 +37,13 @@ android {
     buildFeatures {
         viewBinding true
     }
+    sourceSets {
+        main {
+            jni {
+                srcDirs 'src\\main\\jni'
+            }
+        }
+    }
 }
 
 dependencies {
@@ -58,7 +65,7 @@ appsuit {
         pw 'stealien'
 
 //      options = ['check_root', 'detect_magisk', 'check_integrity', 'check_emul', 'check_debugging', 'prevent_debugging', 'self_protect', 'encrypt_so', 'encrypt_flutter', 'prevent_decompile']
-        options = ['prevent_adb']
+        options = ['encrypt_so']
 
         cloudBuild true
         enableServerBuild true
