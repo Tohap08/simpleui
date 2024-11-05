@@ -79,6 +79,7 @@ public void *(android.view.View);
 -use_api_desugar
 -use_d8
 -sync_lib_proguard_rules
+
 -dumpprofile proguard
 
 #secure handler

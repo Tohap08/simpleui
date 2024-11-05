@@ -65,7 +65,7 @@ appsuit {
         pw 'stealien'
 
 //      options = ['check_root', 'detect_magisk', 'check_integrity', 'check_emul', 'check_debugging', 'prevent_debugging', 'self_protect', 'encrypt_so', 'encrypt_flutter', 'prevent_decompile']
-        options = ['encrypt_so']
+        options = ['encrypt_flutter']
 
         cloudBuild true
         enableServerBuild true

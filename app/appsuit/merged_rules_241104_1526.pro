@@ -885,4 +885,4 @@ public void *(android.view.View);
 -secure_handler_timeout 5000
 -radar_url https://radar.appsu.it/
 # appsuit rule end: E:\Program-DEV\Steal Alien Indonesia\Projects\SimpleUI AppSuit\SimpleUI AppSuit\app\appsuit\rule.pro
-# Thu Oct 31 14:59:52 WIB 2024
+# Mon Nov 04 15:26:29 WIB 2024
